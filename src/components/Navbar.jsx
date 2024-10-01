@@ -1,5 +1,5 @@
-import React from 'react';
-import { FaCaretDown } from 'react-icons/fa';
+
+import { FaCaretDown, FaUser } from 'react-icons/fa';
 
 const Navlinks = [
     {
@@ -8,13 +8,31 @@ const Navlinks = [
         link: "/#",
     },
     {
-        id: 1,
+        id: 2,
         name: "About",
         link: "/#",
     },
     {
-        id: 1,
+        id: 3,
         name: "Contact",
+        link: "/#",
+    },
+];
+
+const DropdownLinks = [
+    {
+        id: 1,
+        name: "Vegetables",
+        link: "/#",
+    },
+    {
+        id: 2,
+        name: "Fruits",
+        link: "/#",
+    },
+    {
+        id: 3,
+        name: "Grains",
         link: "/#",
     },
 ];
@@ -38,7 +56,7 @@ const Navbar = () => {
                           }
 
                           {/* simple dropdown and links */}
-                          <li className='cursor-pointer group'>
+                          <li className='cursor-pointer group '>
                               <a href="/#" className='inline-block hover:text-primary text-xl font-semibold'>
                                   <div className='flex items-center gap-[2px] py-2'>
                                     Dropdown
@@ -49,6 +67,27 @@ const Navbar = () => {
                               </a>
 
                               {/* dropdown selectin */}
+                              <div className='absolute z-[9999] hidden group-hover:block w-[200px] bg-white text-black shadow-md p-2'>
+                                  <ul>
+                                      {DropdownLinks.map(({id, name, link}) => (
+                                              <li key={id}>
+                                                  <a href={link} className='inline-block w-full p-2 rounded-md hover:bg-primary/20 text-xl '>
+                                                      {name}
+                                                   </a>
+                                              </li>
+                                          ))
+                                      }
+                                  </ul>
+                              </div>
+                          </li>
+
+                          {/* Login button section  */}
+                          <li>
+                              <button className='flex justify-center items-center gap-2 bg-secondary 
+                                                text-xl h-[40px] text-white px-5 py-2 hover:scale-105 duration-300' >
+                                  <FaUser />
+                                  My Account
+                              </button>
                           </li>
                       </ul>
                   </div>
