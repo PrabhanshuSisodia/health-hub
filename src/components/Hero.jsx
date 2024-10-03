@@ -1,5 +1,5 @@
-import HeroImg from '../assets/Hero.png'
 import heroBg from '../assets/heroBg.png'
+import HeroImg from '../assets/Hero.png'
 import PrimaryButton from './PrimaryButton'
 
 const BgStyle = {
